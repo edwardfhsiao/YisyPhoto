@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
 
 })
 
-module.exports = ViewContainer
+export default ViewContainer

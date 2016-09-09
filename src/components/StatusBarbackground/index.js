@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
 
 })
 
-module.exports = StatusBarBackground
+export default StatusBarBackground
