@@ -9,6 +9,11 @@ import {
 import { Navigator, StyleSheet, TabBarIOS } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
+import MessageIndex from '../Screens/Message/index'
+import ContactsIndex from '../Screens/Contacts/index'
+import DiscoverIndex from '../Screens/Discover/index'
+import AccountIndex from '../Screens/Account/index'
+
 class App extends Component {
 
   constructor(props) {
@@ -20,10 +25,10 @@ class App extends Component {
 
   render() {
 
-    let messageIndexInitialRoute = {ident: 'messageIndex'}
-    let contactIndexInitialRoute = {ident: 'contactIndex'}
-    let discoverIndexInitialRoute = {ident: 'discoverIndex'}
-    let accountIndexInitialRoute = {ident: 'accountIndex'}
+    let messageIndexInitialRoute = {component: MessageIndex, title: '聊天'}
+    let contactIndexInitialRoute = {component: ContactsIndex, title: '联系人'}
+    let discoverIndexInitialRoute = {component: DiscoverIndex, title: '发现'}
+    let accountIndexInitialRoute = {component: AccountIndex, title: '账户'}
 
     return (
      <TabBarIOS selectedTab={this.state.selectedTab}>

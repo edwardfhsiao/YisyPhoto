@@ -1,9 +1,17 @@
 'use strict'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Navigator, Text, StyleSheet, ListView } from 'react-native'
+import {
+  TouchableOpacity,
+  Navigator,
+  View,
+  Text,
+  StyleSheet,
+  ListView
+} from 'react-native'
 import ViewContainer from '../../ViewContainer/index'
 import NewsItem from '../../NewsItem/index'
+import Show from './Show'
 
 import {
   fetchArticles
@@ -21,18 +29,30 @@ class MessageIndex extends Component {
   }
 
   componentDidMount(){
+    console.log(this.props)
     if (this.props.articleList.length <= 0){
       this.fetchArticles(1);
     }
   }
 
+  _onPressButton(id) {
+    this.props.navigator.push({
+      component: Show,
+      passProps: {id: id}
+    });
+  }
+
   renderRow(rowData) {
     return (
-      <NewsItem
-        name={rowData.title}
-        removable={this.props.connected}
-        onRemove={() => this._remove(rowData.id)}
-      />
+      <TouchableOpacity onPress={this._onPressButton.bind(this, rowData.id)}>
+        <View>
+          <NewsItem
+            name={rowData.title}
+            removable={this.props.connected}
+            onRemove={() => this._remove(rowData.id)}
+          />
+        </View>
+      </TouchableOpacity>
     )
   }
 

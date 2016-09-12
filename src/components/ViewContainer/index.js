@@ -1,14 +1,18 @@
 'use strict'
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
-import StatusBarBackground from '../StatusBarBackground/index'
+import { StyleSheet, StatusBar, ScrollView, View } from 'react-native'
 
 class ViewContainer extends Component {
   render() {
     return (
       <View style={[styles.viewContainer, this.props.style || {}]}>
-        <StatusBarBackground />
-        {this.props.children}
+        <StatusBar
+           backgroundColor="blue"
+           barStyle="light-content"
+         />
+         <ScrollView>
+          {this.props.children}
+        </ScrollView>
       </View>
     )
   }
